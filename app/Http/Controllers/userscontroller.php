@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\users;
 use Illuminate\Http\Request;
 
-class userscontroller extends Controller
+class usersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class userscontroller extends Controller
     public function index()
     {
         $userview=users::latest()->paginate(5);
-        return view('userview.index',copmact('userview'));
+        return view('userview.index',copmact('userview'))
         ->with ('i',(request ()->input('page',1)-1) * 5);
     }
 
@@ -37,18 +37,18 @@ class userscontroller extends Controller
             'states'=>'required',
             ' phone'=>'required',
             'password'=>'required',
-            'certificate'=>'required'|image|mimes|:jpeg,png,jpg,gif,svg|max:2048 ,
+            'certificate'=>'required|image|mimes|:jpeg,png,jpg,gif,svg|max:2048',
         ]) ; 
         $input = $request->all();
         if($certificate= $request->file('image') ){
             $destinationpath='/images/';
-            $profileImage =date('YmdHis').".".$image->get ClientOrginalExtension();
+            $profileImage =date('YmdHis').".".$image->getClientOrginalExtension();
             $certificate->move ($destinationpath ,$profileImage);
             $input['certificate']="$profileImage" ;
         }
         users::create($input);
         return redirect()->route('userview.index')
-        -> with ('success','userview added successfully')
+        -> with ('success','userview added successfully');
     }
 
     /**
@@ -85,18 +85,16 @@ class userscontroller extends Controller
        $input = $request->all();
        if($certificate= $request->file('image') ){
            $destinationpath='/images/';
-           $profileImage =date('YmdHis').".".$image->get ClientOrginalExtension();
+           $profileImage =date('YmdHis').".".$image->getClientOrginalExtension();
            $certificate->move ($destinationpath ,$profileImage);
            $input['certificate']="$profileImage" ;
        }else{
-        unst($input['certificate'])
+        unst($input['certificate']);
        }
 
-        $users ->update($input) 
-       return redirect()->route('userview.index')
-       -> with ('success','userview updated  successfully')
+        $users ->update($input);
+       return redirect()->route('userview.index')->with('success','userview updated  successfully');
    }
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -104,9 +102,9 @@ class userscontroller extends Controller
     public function destroy(users $users)
     {
         $users->delete();
-        return redirect()->route('userview.index')
-        -> with ('success','userview deleted successfully')
+        return redirect()->route('userview.index')->with ('success','userview deleted successfully');
     }   
 
     
 
+}
