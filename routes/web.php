@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\usersController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -66,5 +66,15 @@ Route::post('/editwarehouse', function () {
 
 
 
+
+Route::get('/test', function() {
+    return var_dump('Hello Marah');
+});
+
+Route::get('/test_view', function() {
+  return view('test_page',['name'=>'Maraaah']);
+});
+
+Route::resource('users',usersController::class );
 
 require __DIR__.'/auth.php';
