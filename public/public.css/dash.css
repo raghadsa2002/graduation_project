@@ -1,0 +1,68 @@
+.transparent-form {
+    background-color: rgba(255, 255, 255, 0.5); /* أبيض مع شفافية 50% */
+    padding: 12px;
+    border-radius: 10px;
+   
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 50px;
+    margin: 120px;
+   text-align: center;
+   background-image: url('phar.jpg');
+}
+
+
+.option {
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: block;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    
+    cursor: pointer;
+}
+
+.option a {
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: block;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+.option a:hover {
+    background-color: #ccc;
+    
+}
+
+button {
+  
+    padding: 10px;
+    font-size: 25px;
+    background-color: #e9e8ed;
+    color: #0b0000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+button:hover{
+    background-color: rgb(36, 200, 88);
+}
+
