@@ -9,8 +9,7 @@
 <body>
     <h2> تعديل بيانات مستودع</h2>
     <form>
-        <label for="ID">ID</label>
-        <input type="text" id="ID" name="ID" required><br><br>
+        <input hidden type="text" id="ID" name="ID" value="{{user['id']}}" required><br><br>
 
         <label for="الاسم">الاسم</label>
         <input type="text" id="name" name="name" required><br><br>

@@ -17,6 +17,7 @@
             </tr>
         </thead>
         <tbody>
+            
             <tr>
                 <td>1</td>
                 <td>صيدلية رواء</td>
@@ -24,13 +25,13 @@
                 <td>Active</td>
                 <td class="actions">
                 <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
+            <form class="transparent-form" action="#" method="post">
             @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
                 <button type="submit" formaction="{{ route('editpharma') }}">Edit</button>
             
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
+                    <a onclick="showConfirmationModal();">Archive</a>
+            </div>
                 </td>
             </tr>
           
@@ -41,13 +42,13 @@
                 <td>Active</td>
                 <td class="actions">
                 <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
+            <form class="transparent-form" action="#" method="post">
             @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
                 <button type="submit" formaction="{{ route('editpharma') }}">Edit</button>
             
                     <button onclick="showConfirmationModal();">Archive</button>
-</div>
+            </div>
                 </td>
 
                 <tr>
