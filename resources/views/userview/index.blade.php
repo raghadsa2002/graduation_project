@@ -5,9 +5,10 @@
 <div class="row">
     <div class="col align-self-start">
    
-    <a class ="btn btn-praimry"
+    <a class ="btn btn-praimry">
     
 </div>
+
     <div class="col align-self-center">
       One of three columns
     </div>

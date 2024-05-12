@@ -14,77 +14,25 @@
                 <th>اسم الصيدلية</th>
                 <th>الهاتف</th>
                 <th>الحالة</th>
+                <th>الخيارات</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>صيدلية رواء</td>
-                <td>095763552</td>
-                <td>Active</td>
-                <td class="actions">
-                <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editpharma') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
-                </td>
-            </tr>
-          
-            <tr>
-                <td>2</td>
-                <td>صيدلية عدي </td>
-                <td>095763552</td>
-                <td>Active</td>
-                <td class="actions">
-                <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editpharma') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
-                </td>
-
+            @foreach ($pharmas as $pharmacy)
                 <tr>
-                    <td>3</td>
-                    <td> صيدلية اسيل</td>
-                    <td>095763552</td>
-                    <td>Active</td>
+                    <td>{{ $pharmacy->id }}</td>
+                    <td>{{ $pharmacy->name }}</td>
+                    <td>{{ $pharmacy->phone }}</td>
+                    <td>{{ $pharmacy->status }}</td>
                     <td class="actions">
-                    <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editpharma') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
+                        <form class="transparent-form" action="{{ route('editpharma') }}" method="post">
+                            @csrf
+                            <button type="submit">Edit</button>
+                        </form>
+                        <button onclick="showConfirmationModal();">Archive</button>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>صيدلية صفاء</td>
-                    <td>095763552</td>
-                    <td>Active</td>
-                    <td class="actions">
-                    <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editpharma') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
-                    </td>
-                </tr>
-
-            </tr>
+            @endforeach
         </tbody>
     </table>
 
@@ -97,7 +45,7 @@
         </div>
     </div>
 
-    <!-- زر إضافة مستودع -->
+    <!-- زر إضافة صيدلية -->
     <div class="dashboard">
         <form class="transparent-form" action="#" method="post">
             @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
@@ -105,8 +53,7 @@
                 <button type="submit" formaction="{{ route('addpharma') }}">Add+</button>
             </div>
 
-        
-            <script>
+    <script>
         // إظهار نافذة التأكيد
         function showConfirmationModal() {
             var modal = document.getElementById("confirmationModal");
@@ -122,7 +69,7 @@
         // تأكيد الأرشفة
         function archiveWarehouse() {
             // يمكنك إضافة الاكواد الخاصة بأرشفة المستودع هنا
-            alert("تم أرشفةالسمتودع");
+            alert("تم أرشفة الصيدلية");
             hideConfirmationModal();
         }
     </script>

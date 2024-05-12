@@ -9,6 +9,8 @@
 <body>
     <h2>اضافة صيدلية</h2>
     <form>
+    <form id="add-form" action="{{ route('addpharma') }}" method="POST">
+    {!! csrf_field() !!}
         <label for="ID">ID</label>
         <input type="text" id="ID" name="ID" required><br><br>
 

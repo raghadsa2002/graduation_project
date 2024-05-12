@@ -17,7 +17,8 @@
 </head>
 <body>
 <div class="login-container">
-  <form id="login-form">
+  <form id="login-form" action="{{ route('loginAdmin') }}" method="POST">
+    {!! csrf_field() !!}
     <h2>تسجيل دخول</h2>
     <div class="input-group">
       <label for="username">اسم المستخدم</label>
@@ -27,7 +28,7 @@
       <label for="password">كلمة السر</label>
       <input type="password" id="password" name="password" required>
     </div>
-    <button onclick="window.location.href='{{ route("dash") }}'">تسجيل دخول</button>
+    <button type="submit">تسجيل دخول</button>
 
     
   </form>

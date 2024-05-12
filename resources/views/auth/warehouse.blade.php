@@ -17,74 +17,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>مستودع رواء</td>
-                <td>095763552</td>
-                <td>Active</td>
-                <td class="actions">
-                <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editwarehouse') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
-                </td>
-            </tr>
-          
-            <tr>
-                <td>2</td>
-                <td>مستودع عدي </td>
-                <td>095763552</td>
-                <td>Active</td>
-                <td class="actions">
-                <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editwarehouse') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
-                </td>
-
+            @foreach ($warehouses as $warehousey)
                 <tr>
-                    <td>3</td>
-                    <td> مستودع اسيل</td>
-                    <td>095763552</td>
-                    <td>Active</td>
+                    <td>{{ $warehousey->id }}</td>
+                    <td>{{ $warehousey->name }}</td>
+                    <td>{{ $warehousey->phone }}</td>
+                    <td>{{ $warehousey->status }}</td>
                     <td class="actions">
-                    <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editwarehouse') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
+                        <form class="transparent-form" action="{{ route('editpharma') }}" method="post">
+                            @csrf
+                            <button type="submit">Edit</button>
+                        </form>
+                        <button onclick="showConfirmationModal();">Archive</button>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>مستودع صفاء</td>
-                    <td>095763552</td>
-                    <td>Active</td>
-                    <td class="actions">
-                    <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
-            <div class="option">
-                <button type="submit" formaction="{{ route('editwarehouse') }}">Edit</button>
-            
-                    <button onclick="showConfirmationModal();">Archive</button>
-</div>
-                    </td>
-                </tr>
-
-            </tr>
+            @endforeach
         </tbody>
     </table>
 
