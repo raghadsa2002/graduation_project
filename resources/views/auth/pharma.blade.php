@@ -18,6 +18,11 @@
             </tr>
         </thead>
         <tbody>
+        @if(sizeof($pharmas) < 1)
+            <tr>
+                <td colspan="5">لاتوجد بيانات</td>
+            </tr>
+        @else
             @foreach ($pharmas as $pharmacy)
                 <tr>
                     <td>{{ $pharmacy->id }}</td>
@@ -25,14 +30,22 @@
                     <td>{{ $pharmacy->phone }}</td>
                     <td>{{ $pharmacy->status }}</td>
                     <td class="actions">
-                        <form class="transparent-form" action="{{ route('editpharma') }}" method="post">
+                        <!-- قسم التعديل -->
+                        <form class="transparent-form" action="{{ route('editpharma', ['pharmacy' => $pharmacy->id]) }}" method="get">
                             @csrf
-                            <button type="submit">Edit</button>
+                            <button type="submit">تحرير</button>
                         </form>
-                        <button onclick="showConfirmationModal();">Archive</button>
+
+                        <!-- قسم الأرشفة -->
+                        @if(empty($pharmacy->archive))
+                            <button onclick="showConfirmationModal();">أرشفة</button>
+                        @else
+                            <button disabled>مؤرشف</button>
+                        @endif
                     </td>
                 </tr>
             @endforeach
+        @endif
         </tbody>
     </table>
 
@@ -52,6 +65,8 @@
             <div class="option">
                 <button type="submit" formaction="{{ route('addpharma') }}">Add+</button>
             </div>
+        </form>
+    </div>
 
     <script>
         // إظهار نافذة التأكيد
