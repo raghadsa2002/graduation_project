@@ -9,7 +9,7 @@
 <body>
     <h2>اضافة صيدلية</h2>
     <form>
-    <form id="add-form" action="{{ route('addpharma') }}" method="POST">
+    <form id="add-form" action="{{ route('addpharmaAdmin') }}" method="POST">
     {!! csrf_field() !!}
         <label for="ID">ID</label>
         <input type="text" id="ID" name="ID" required><br><br>
@@ -21,7 +21,7 @@
         <input type="text" id="email" name="email" required><br><br>
 
         <label for="كلمة السر">كلمة السر</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="password" required><br><br>
         
         
         <label for="number">رقم الهاتف</label>

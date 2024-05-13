@@ -32,6 +32,11 @@ Route::get('/', function () {
 // })->name('dash');
 Route::post('/loginAdmin',[UsersController::class,'loginAdmin'])->name('loginAdmin');
 
+Route::post('/addpharmaAdmin',[UsersController::class,'addpharmaAdmin'])->name('addpharmaAdmin');
+Route::post('/addwarehouseAdmin',[UsersController::class,'addwarehouseAdmin'])->name('addpharmaAdmin');
+Route::post('/editpharmaAdmin',[UsersController::class,'editharmaAdmin'])->name('editpharmaAdmin');
+Route::post('/editwarehouseAdmin',[UsersController::class,'editwarehouseAdmin'])->name('editwarehouseAdmin');
+
 Route::post('/pharma',[UsersController::class,'getAllPharmas'])->name('pharma');
 Route::post('/warehouse',[UsersController::class,'getAllWarehouse'])->name('warehouse');
 Route::post('/updateviewwharehouse/{id}',[UsersController::class,'updateviewwharehouse'])->name('updateviewwharehouse');

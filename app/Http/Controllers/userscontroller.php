@@ -39,6 +39,18 @@ class UsersController extends Controller
         // else
             // return view('auth.login');
     }
+    public function addpharmaAdmin(Request $request) {
+        $request->validate([
+            'username'=>'required',
+            'email'=>'required',
+            'location'=>'required',
+            'phone'=>'required',
+            'password'=>'required',
+            'certificate'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+       ]); 
+        $input = $request->all(); }
+
+    
 
     /**
      * Store a newly created resource in storage.

@@ -9,9 +9,9 @@
 <body>
     <h2> تعديل بيانات صيدلية</h2>
     <form>
-        <label for="ID">ID</label>
-        <input type="text" id="ID" name="ID" required><br><br>
-
+    <form id="add-form" action="{{ route('editpharma') }}" method="POST">
+    {!! csrf_field() !!}
+    <input hidden type="text" id="ID" name="ID" value="{{user['id']}}" required><br><br>
         <label for="الاسم">الاسم</label>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -19,7 +19,7 @@
         <input type="text" id="email" name="email" required><br><br>
 
         <label for="كلمة السر">كلمة السر</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="password" required><br><br>
         
         
         <label for="number">رقم الهاتف</label>
