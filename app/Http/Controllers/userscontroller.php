@@ -26,19 +26,20 @@ class UsersController extends Controller
     {
         return view('userview.create');
     }
-    public function loginAdmin(Request $request) {
-        $request->validate([
-                'username'=>'required',
-                'password'=>'required',
-       ]); 
-        $input = $request->all();   
-        $user = User::where('name',$input['username'])->where('password',Hash::make($input['password']))->first();
-        // return var_dump($user);
-        // if($user)
-            return view('auth.dash');
-        // else
-            // return view('auth.login');
+    public function login(Request $request)
+    {
+        $credentials = $request->only('username', 'password');
+
+        if ($credentials['username'] === 'admin' && $credentials['password'] === '12345') {
+            // تم تسجيل الدخول بنجاح
+            return redirect()->route('auth.dash');
+        } else {
+            // خطأ في اسم المستخدم أو كلمة المرور
+            return back()->withInput()->withErrors(['message' => 'Invalid credentials']);
+        }
     }
+
+        
     public function addpharmaAdmin(Request $request) {
         $request->validate([
             'username'=>'required',
