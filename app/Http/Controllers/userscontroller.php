@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;//مكتبة موجودة بالارافيل تشفر كلمة السر بالداتا بيز
 
 class UsersController extends Controller
 {
@@ -32,13 +32,28 @@ class UsersController extends Controller
                 'password'=>'required',
        ]); 
         $input = $request->all();   
-        $user = User::where('name',$input['username'])->where('password',Hash::make($input['password']))->first();
+        $user = User::where('name',$input['username'])->where('password',Hash::make($input['password']))->first();//يعني جبلي نتيجة وحدةfirstربط الفرونت بقاعدة البيانات (ترجيع المعلومات من قاعدة البيانات)حطينا 
         // return var_dump($user);
         // if($user)
             return view('auth.dash');
         // else
             // return view('auth.login');
     }
+    public function addwarehousaAdmin(Request $request) {
+        $request->validate([
+            'username'=>'required',
+            'email'=>'required',
+            'location'=>'required',
+            'phone'=>'required',
+            'password'=>'required',
+        ]); 
+        $input = $request->all(); 
+        User::create($input);
+         return rediect()->route('auth.addwarehouse')
+->with('seccess','userview added seccessfully');}
+
+
+
     public function addpharmaAdmin(Request $request) {
         $request->validate([
             'username'=>'required',
@@ -48,9 +63,10 @@ class UsersController extends Controller
             'password'=>'required',
             'certificate'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        ]); 
-        $input = $request->all(); }
-
-    
+        $input = $request->all(); 
+        User::create($input);
+        return rediect()->route('auth.addpharma')
+->with('seccess','userview added seccessfully');}
 
     /**
      * Store a newly created resource in storage.

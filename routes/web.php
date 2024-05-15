@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\admin\PharmaController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,11 +31,12 @@ Route::get('/', function () {
 // Route::post('/dash', function () {
 //     return view('auth.dash');
 // })->name('dash');
+Route::resource('/pharam',PharmaController::class);
 Route::post('/loginAdmin',[UsersController::class,'loginAdmin'])->name('loginAdmin');
 
 Route::post('/addpharmaAdmin',[UsersController::class,'addpharmaAdmin'])->name('addpharmaAdmin');
 Route::post('/addwarehouseAdmin',[UsersController::class,'addwarehouseAdmin'])->name('addpharmaAdmin');
-Route::post('/editpharmaAdmin',[UsersController::class,'editharmaAdmin'])->name('editpharmaAdmin');
+Route::post ('/editpharmaAdmin',[UsersController::class,'editharmaAdmin'])->name('editpharmaAdmin');
 Route::post('/editwarehouseAdmin',[UsersController::class,'editwarehouseAdmin'])->name('editwarehouseAdmin');
 
 Route::post('/pharma',[UsersController::class,'getAllPharmas'])->name('pharma');

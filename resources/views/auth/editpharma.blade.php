@@ -9,7 +9,7 @@
 <body>
     <h2> تعديل بيانات صيدلية</h2>
     <form>
-    <form id="add-form" action="{{ route('editpharma') }}" method="POST">
+    <form id="add-form" action="{{ route('pharam.update') }}" method="POST">
     {!! csrf_field() !!}
     <input hidden type="text" id="ID" name="ID" value="{{user['id']}}" required><br><br>
         <label for="الاسم">الاسم</label>
