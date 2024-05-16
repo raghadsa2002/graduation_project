@@ -31,7 +31,7 @@
                     <td>{{ $pharmacy->status }}</td>
                     <td class="actions">
                         <!-- قسم التعديل -->
-                        <form class="transparent-form" action="{{ route('editpharma', ['pharmacy' => $pharmacy->id]) }}" method="get">
+                        <form class="transparent-form" action="{{ route('pharam.edit', $pharmacy->id) }}"  >
                             @csrf
                             <button type="submit">تحرير</button>
                         </form>
@@ -63,7 +63,7 @@
         <form class="transparent-form" action="#" method="post">
             @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
-                <button type="submit" formaction="{{ route('addpharma') }}">Add+</button>
+                <button type="submit" formaction="{{ route('pharam.create') }}">Add+</button>
             </div>
         </form>
     </div>

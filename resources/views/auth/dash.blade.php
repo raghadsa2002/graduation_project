@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="dashboard">
-        <form class="transparent-form" action="#" method="post">
-            @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
+    <form class="transparent-form" >
+              <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
-                <button type="submit" formaction="{{ route('pharma') }}">صيدليات</button>
+                <button    href="{{route('loginAdmin/pharam')}}">صيدليات</button>
             </div>
             <div class="option">
                 <button type="submit" formaction="{{ route('warehouse') }}">مستودعات</button>
             </div>
-        </form>
+        </form> 
     </div>
 </body>
 </html>

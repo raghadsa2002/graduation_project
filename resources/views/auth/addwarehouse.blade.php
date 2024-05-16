@@ -11,8 +11,7 @@
     <form>
     <form id="add-form" action="{{ route('addwarehouseAdmin') }}" method="POST">
     {!! csrf_field() !!}
-        <label for="ID">ID</label>
-        <input type="text" id="ID" name="ID" required><br><br>
+       
 
         <label for="الاسم">الاسم</label>
         <input type="text" id="name" name="name" required><br><br>

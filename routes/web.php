@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\admin\PharmaController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -16,9 +18,7 @@ Route::get('/', function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
-Route::get('/login', function () {
-   return view('auth.login');
-});
+
 Route::get('/', function () {
     return view('auth.login');
 })->name('login');
@@ -30,16 +30,18 @@ Route::get('/', function () {
 // Route::post('/dash', function () {
 //     return view('auth.dash');
 // })->name('dash');
-Route::post('/loginAdmin',[UsersController::class,'loginAdmin'])->name('loginAdmin');
 
-Route::post('/addpharmaAdmin',[UsersController::class,'addpharmaAdmin'])->name('addpharmaAdmin');
-Route::post('/addwarehouseAdmin',[UsersController::class,'addwarehouseAdmin'])->name('addpharmaAdmin');
-Route::post('/editpharmaAdmin',[UsersController::class,'editharmaAdmin'])->name('editpharmaAdmin');
-Route::post('/editwarehouseAdmin',[UsersController::class,'editwarehouseAdmin'])->name('editwarehouseAdmin');
+//Route::resource('/pharma', PharmaController::class);
 
-Route::post('/pharma',[UsersController::class,'getAllPharmas'])->name('pharma');
-Route::post('/warehouse',[UsersController::class,'getAllWarehouse'])->name('warehouse');
-Route::post('/updateviewwharehouse/{id}',[UsersController::class,'updateviewwharehouse'])->name('updateviewwharehouse');
+Route::post('/loginAdmin', [UsersController::class, 'loginAdmin'])->name('loginAdmin');
+Route::post('/addpharmaAdmin', [UsersController::class, 'addpharmaAdmin'])->name('addpharmaAdmin');
+Route::post('/addwarehouseAdmin', [UsersController::class, 'addwarehousaAdmin'])->name('addwarehouseAdmin');
+Route::post('/editpharmaAdmin', [UsersController::class, 'editpharmaAdmin'])->name('editpharmaAdmin');
+Route::post('/editwarehouseAdmin', [UsersController::class, 'editwarehouseAdmin'])->name('editwarehouseAdmin');
+
+Route::post('/loginAdmin/pharam',[UsersController::class , 'getAllPharmas'])->name('pharam');
+Route::post('/warehouse', [UsersController::class, 'getAllWarehouse'])->name('warehouse');
+Route::post('/updateviewwharehouse/{id}', [UsersController::class, 'updateviewwharehouse'])->name('updateviewwharehouse');
 
 // Route::post('/pharma', function () {
 //     return view('auth.pharma');
@@ -49,42 +51,30 @@ Route::post('/updateviewwharehouse/{id}',[UsersController::class,'updateviewwhar
 //     return view('auth.warehouse');
 // })->name('warehouse');
 
-Route::post('/addpharma', function () {
+Route::get('/addpharma', function () {
     return view('auth.addpharma');
 })->name('addpharma');
 
-Route::post('/addwarehouse', function () {
+Route::get('/addwarehouse', function () {
     return view('auth.addwarehouse');
 })->name('addwarehouse');
 
-Route::post('/editpharma', function () {
+Route::get('/editpharma', function () {
     return view('auth.editpharma');
 })->name('editpharma');
 
-Route::post('/editwarehouse', function () {
+Route::get('/editwarehouse', function () {
     return view('auth.editwarehouse');
 })->name('editwarehouse');
 
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/test', function() {
+Route::get('/test', function () {
     return var_dump('Hello Marah');
 });
 
-Route::get('/test_view', function() {
-  return view('test_page',['name'=>'Maraaah']);
+Route::get('/test_view', function () {
+    return view('test_page', ['name' => 'Maraaah']);
 });
 
-Route::resource('users',usersController::class );
+Route::resource('users', UsersController::class);
 
 require __DIR__.'/auth.php';
