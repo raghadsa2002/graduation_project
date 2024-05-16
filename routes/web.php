@@ -39,9 +39,11 @@ Route::post('/addwarehouseAdmin', [UsersController::class, 'addwarehousaAdmin'])
 Route::post('/editpharmaAdmin', [UsersController::class, 'editpharmaAdmin'])->name('editpharmaAdmin');
 Route::post('/editwarehouseAdmin', [UsersController::class, 'editwarehouseAdmin'])->name('editwarehouseAdmin');
 
-Route::post('pharam',[UsersController::class , 'getAllPharmas'])->name('pharam');
+Route::get('/pharam',[UsersController::class , 'getAllPharmas'])->name('pharam');
 Route::post('/warehouse', [UsersController::class, 'getAllWarehouse'])->name('warehouse');
 Route::post('/updateviewwharehouse/{id}', [UsersController::class, 'updateviewwharehouse'])->name('updateviewwharehouse');
+Route::get('/editPharamPage/{id}', [UsersController::class, 'editPharamPage'])->name('editPharamPage');
+
 
 // Route::post('/pharma', function () {
 //     return view('auth.pharma');
@@ -51,7 +53,7 @@ Route::post('/updateviewwharehouse/{id}', [UsersController::class, 'updateviewwh
 //     return view('auth.warehouse');
 // })->name('warehouse');
 
-Route::get('/addpharma', function () {
+Route::post('/addpharma', function () {
     return view('auth.addpharma');
 })->name('addpharma');
 

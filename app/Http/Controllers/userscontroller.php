@@ -168,9 +168,10 @@ class UsersController extends Controller
         return view('auth.warehouse', ['warehouses' => $users]);
     }
 
-    public function updateviewwharehouse($id)
+    public function editPharamPage($id)
     {
         $user = User::findOrFail($id); // role 3 for warehouses
         return view('auth.editpharma', ['user' => $user]);
     }
+
 }

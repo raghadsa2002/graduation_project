@@ -18,30 +18,27 @@
             </tr>
         </thead>
         <tbody>
-        @if(sizeof($pharmas) < 1)
-            <tr>
-                <td colspan="5">لاتوجد بيانات</td>
-            </tr>
+            
+        @if(empty($pharams) )
+        <tr>
+            <td> لاتوجد بيانات</td>
+        </tr>
         @else
-            @foreach ($pharmas as $pharmacy)
-                <tr>
+        @foreach ($pharmas as $pharmacy)
+        <tr>
                     <td>{{ $pharmacy->id }}</td>
                     <td>{{ $pharmacy->name }}</td>
                     <td>{{ $pharmacy->phone }}</td>
                     <td>{{ $pharmacy->status }}</td>
                     <td class="actions">
+
                         <!-- قسم التعديل -->
-                        <form class="transparent-form" action="{{ route('pharam.edit', $pharmacy->id) }}"  >
+                       
+                        <form class="transparent-form" action="{{ route('editPharamPage', $pharmacy->id) }}"  >
                             @csrf
                             <button type="submit">تحرير</button>
                         </form>
-
                         <!-- قسم الأرشفة -->
-                        @if(empty($pharmacy->archive))
-                            <button onclick="showConfirmationModal();">أرشفة</button>
-                        @else
-                            <button disabled>مؤرشف</button>
-                        @endif
                     </td>
                 </tr>
             @endforeach
@@ -63,7 +60,7 @@
         <form class="transparent-form" action="#" method="post">
             @csrf <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
-                <button type="submit" formaction="{{ route('pharam.create') }}">Add+</button>
+                <button type="submit" formaction="{{ route('addpharma') }}">Add+</button>
             </div>
         </form>
     </div>

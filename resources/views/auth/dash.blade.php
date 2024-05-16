@@ -11,12 +11,12 @@
     <form class="transparent-form" >
               <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
-                <button    href="{{route('pharam')}}">صيدليات</button>
-            </div>
+                <a href="{{ route('pharam') }}">صيدليات</a>
+</div>
             <div class="option">
                 <button type="submit" formaction="{{ route('warehouse') }}">مستودعات</button>
             </div>
-        </form> 
+        </for
     </div>
 </body>
 </html>
