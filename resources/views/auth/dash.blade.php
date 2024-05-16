@@ -11,7 +11,7 @@
     <form class="transparent-form" >
               <!-- يجب أن تضيف هذا السطر في نموذج Laravel للحفاظ على الحماية -->
             <div class="option">
-                <button    href="{{route('loginAdmin/pharam')}}">صيدليات</button>
+                <button    href="{{route('pharam')}}">صيدليات</button>
             </div>
             <div class="option">
                 <button type="submit" formaction="{{ route('warehouse') }}">مستودعات</button>

@@ -39,7 +39,7 @@ Route::post('/addwarehouseAdmin', [UsersController::class, 'addwarehousaAdmin'])
 Route::post('/editpharmaAdmin', [UsersController::class, 'editpharmaAdmin'])->name('editpharmaAdmin');
 Route::post('/editwarehouseAdmin', [UsersController::class, 'editwarehouseAdmin'])->name('editwarehouseAdmin');
 
-Route::post('/loginAdmin/pharam',[UsersController::class , 'getAllPharmas'])->name('pharam');
+Route::post('pharam',[UsersController::class , 'getAllPharmas'])->name('pharam');
 Route::post('/warehouse', [UsersController::class, 'getAllWarehouse'])->name('warehouse');
 Route::post('/updateviewwharehouse/{id}', [UsersController::class, 'updateviewwharehouse'])->name('updateviewwharehouse');
 
