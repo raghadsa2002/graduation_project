@@ -34,13 +34,27 @@ Route::get('/', function () {
 //Route::resource('/pharma', PharmaController::class);
 
 Route::post('/loginAdmin', [UsersController::class, 'loginAdmin'])->name('loginAdmin');
-Route::post('/addpharmaAdmin', [UsersController::class, 'addpharmaAdmin'])->name('addpharmaAdmin');
+Route::post('/addpharmaAdmin', [PharmaController::class, 'addpharmaAdmin'])->name('addpharmaAdmin');
+
 Route::post('/addwarehouseAdmin', [UsersController::class, 'addwarehousaAdmin'])->name('addwarehouseAdmin');
-Route::post('/editpharmaAdmin', [UsersController::class, 'editpharmaAdmin'])->name('editpharmaAdmin');
-Route::post('/editwarehouseAdmin', [UsersController::class, 'editwarehouseAdmin'])->name('editwarehouseAdmin');
+Route::post('/editpharmaAdmin/{id}', [UsersController::class, 'editpharmaAdmin'])->name('editpharmaAdmin');
+
+Route::post('/editwarehouseAdmin/{id}', [UsersController::class, 'editwarehouseAdmin'])->name('editwarehouseAdmin');
+Route::get('/editwarehousePage/{id}', [UsersController::class, 'editwarehousePage'])->name('editwarehousePage');
+
+
+Route::post('/pharmacyArchive/{id}', [UsersController::class, 'pharmacyArchive'])->name('pharmacyArchive');
+Route::post('/WarehouseArchive/{id}', [UsersController::class, 'warehouseArchive'])->name('warehouseArchive');
+
 
 Route::get('/pharam',[UsersController::class , 'getAllPharmas'])->name('pharam');
+
+Route::get('/logout',[UsersController::class , 'logout'])->name('logout');
+
+
 Route::post('/warehouse', [UsersController::class, 'getAllWarehouse'])->name('warehouse');
+Route::get('/warehouse', [UsersController::class, 'getAllWarehouse'])->name('warehouse');
+
 Route::post('/updateviewwharehouse/{id}', [UsersController::class, 'updateviewwharehouse'])->name('updateviewwharehouse');
 Route::get('/editPharamPage/{id}', [UsersController::class, 'editPharamPage'])->name('editPharamPage');
 
@@ -56,6 +70,8 @@ Route::get('/editPharamPage/{id}', [UsersController::class, 'editPharamPage'])->
 Route::post('/addpharma', function () {
     return view('auth.addpharma');
 })->name('addpharma');
+
+//Route::get('/addpharma', [UsersController::class , 'getAllPharmas'])->name('pharam');
 
 Route::get('/addwarehouse', function () {
     return view('auth.addwarehouse');

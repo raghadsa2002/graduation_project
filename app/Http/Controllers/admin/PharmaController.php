@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Pharmacy;
 class PharmaController extends Controller
 {
     /**
@@ -126,4 +126,29 @@ class PharmaController extends Controller
         $pharma->delete();
         return redirect('/auth/pharma')->with('success','pharma deleted');
     }
+    public function addpharmaAdmin(Request $request)
+    {
+        // Extract data from the request
+        $formData = $request->all();
+    
+        // Create a new Pharmacy record
+        $pharmacy = Pharmacy::create([
+            'name' => $formData['name'],
+            'phone' => $formData['number'],
+            'email' => $formData['email'],
+            'password' => $formData['password'],
+            'user_id' => 1, // Assuming user is authenticated
+        ]);
+    
+        // Handle success or error (optional)
+        if ($pharmacy) {
+            // Pharmacy created successfully
+            return redirect()->route('pharam') // Replace 'pharam' with your actual route name
+                ->with('success', 'Pharmacy added successfully!');
+        } else {
+            // Error creating pharmacy (handle appropriately)
+            return redirect()->back()->withErrors(['error' => 'Failed to create pharmacy!']);
+        }
+    }
+    
 }

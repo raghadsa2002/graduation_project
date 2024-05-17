@@ -8,8 +8,7 @@
 </head>
 <body>
     <h2>اضافة صيدلية</h2>
-    <form>
-    <form id="add-form" action="{{ route('addpharmaAdmin') }}" method="POST">
+    <form id="add-form" action="{{url('addpharmaAdmin')}}" method="post">
     {!! csrf_field() !!}
        
         <label for="الاسم">الاسم</label>
