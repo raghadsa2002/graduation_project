@@ -8,7 +8,6 @@
 </head>
 <body>
     <h2>اضافة مستودع</h2>
-    <form>
     <form id="add-form" action="{{ route('addwarehouseAdmin') }}" method="POST">
     {!! csrf_field() !!}
        
