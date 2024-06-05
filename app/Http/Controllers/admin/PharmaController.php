@@ -137,6 +137,8 @@ class PharmaController extends Controller
             'phone' => $formData['number'],
             'email' => $formData['email'],
             'password' => $formData['password'],
+            'location' => $formData['location'],
+            'certificate' => $formData['certificate'],
             'user_id' => 1, // Assuming user is authenticated
         ]);
     
