@@ -25,10 +25,10 @@
         <input type="text" id="number" name="number" value="{{$pharmacy['phone']}}"><br><br>
         
         <label for="certificate">الشهادة</label>
-        <input type="file" id="certificate" name="certificate" accept="image/*"><br><br>
+        <input type="file" id="certificate" value="{{$pharmacy['certificate']}}" name="certificate" accept="image/*"><br><br>
         
         <label for="location">الموقع</label>
-        <input type="text" id="location" name="location"><br><br>
+        <input type="text" id="location" name="location" value="{{$pharmacy['location']}}"><br><br>
         
         <input type="submit" value="تعديل">
     

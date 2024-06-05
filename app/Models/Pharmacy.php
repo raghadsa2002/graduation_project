@@ -15,6 +15,8 @@ class Pharmacy extends Model
         'password',
         'user_id',
         'active',
+        "location",
+        "certificate",
         "admin"
     ];
     protected $attributes = [
